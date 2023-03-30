@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>largest number and smallest number</title>
+    <style>
+        body{
+            background: goldenrod;
+        }
+        h1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>FIND THE LARGEST NUMBER IN AN ARRAY</h1>
+    <script>
+        function max(num1,num2,num3){
+            var maxi = 0;
+            if((num1 >= num2) && (num1 >= num3)){
+                maxi = num1
+            }
+            else if((num2 >= num1) && (num2 >= num3)){
+                maxi = num2
+            }
+            else{
+                maxi = num3
+            }
+            return maxi;
+        }
+        var arr = [];
+        for(i=0;i<3;i++){
+            arr[i] = parseInt(prompt("Enter a number"));
+        }
+        document.write("The largest number is ")
+        document.write(max.apply(this, arr));/*THIS LINE IS USED TO PRINT ANSWER IN THE WEBPAGE*/ 
+        alert("The array  is "+arr)/*THIS LINE IS TO PRINT AN ARRAY OF THE OUTPUT IN PROMPT*/
+    </script>
+</body>
+</html>
