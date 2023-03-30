@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Clock</title>
+    <style>
+        body{
+            background: black;
+        }
+        .timer{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            color: green;
+            font-size: 80px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            letter-spacing: 8px;
+
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="clock" class="timer" onload="showTime()">  </div>
+
+    <script>
+        function showTime(){
+            var date = new Date();
+            var hour = date.getHours();
+            var minute = date.getMinutes();
+            var seconds = date.getSeconds();
+            var session = "AM"
+
+
+            if(hour == 0){
+                hour = 12;
+            }
+            if(hour > 12){
+                hour -= 12;
+                session = "PM"
+            }
+            
+            hour = (hour < 10) ? "0" + hour : hour;
+            minute = (minute < 10) ? "0" + minute : minute;
+            seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+
+            var time = hour + ":" + minute + ":" + seconds + " " + session;
+
+            document.getElementById("clock").innerText = time;
+            document.getElementById("clock").textContent = time;
+
+            setTimeout(showTime,1000);
+        }
+        showTime();
+    </script>
+</body>
+</html>
