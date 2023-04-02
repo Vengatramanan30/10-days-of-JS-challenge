@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorted</title>
+</head>
+<body>
+    <h1>Sort the array in ascending order</h1>
+    <h4>Step to see the "OUTPUT"</h4>
+    <p>
+        <ul>
+            <li>Right click on the present window</li>
+            <li>Click <em>"INSPECT"</em> from the listed options</li>
+            <li>Click on "CONSOLE"</li>
+            <li><strong>YOU SEE THE OUTPUT</strong></li>
+        </ul>
+    </p>
+    <script>
+        const items = [{
+            name : "Coffee",
+            price : 15
+        },
+        {
+            name : "Tea",
+            price : 12
+
+        },{
+            name : "Milkshake",
+            price : 60
+
+        },{
+            name  :"Icecream",
+            price  :100
+
+        },{
+            name : "Sandwich",
+            price  :120
+        },{
+            name : "Bucket chickens",
+            price : 500
+        }];
+
+
+        items.sort((a,b) => a.price - b.price);
+
+        console.log(items);
+    </script>
+</body>
+</html>
