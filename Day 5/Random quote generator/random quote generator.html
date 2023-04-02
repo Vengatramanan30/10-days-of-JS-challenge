@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quote Generator</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: cadetblue;
+        }
+        .container{
+            width: 605px;
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px 30px 25px;
+        }
+        .container header{
+            font-size: 30px;
+            font-weight: 200;
+            text-align: center;
+        }
+        .container .content{
+            margin: 35px 0;
+        }
+        .content .quote-area{
+            display: flex;
+            justify-content: center;
+        }
+        .quote-area .quotes{
+            font-size: 22px;
+            text-align: center;
+            word-break: break-all;
+        }
+        .content .author{
+            display: flex;
+            font-size: 14px;
+            font-style: italic;
+            margin-top: 30px;
+            justify-content: flex-end;
+        }
+        .author span:first-child{
+            margin: -7px 5px 0 0;
+            font-family: monospace;
+        }
+        .container button{
+            display: flex;
+            margin-top: 30px;
+            float: right;
+            padding: 8px;
+            border-radius: 6px;
+            background-color: skyblue;
+            border: none;
+        }
+        .container button:hover{
+            background: cadetblue;
+            color: white;
+        }
+        button .loading{
+            opacity: 0.7;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>QUOTES</header>
+        <div class="content">
+            <div class="quote-area">
+                <p class="quotes">That it will never come again is what makes life so sweet.</p>
+            </div>
+            <div class="author">
+                <span>___</span>
+                <span class="name">Emily Dickinson</span>
+            </div>
+            <button type="button">New Quote</button>
+        </div>
+    </div>
+
+    <script>
+        const quoteText = document.querySelector(".quotes");
+        quotebtn = document.querySelector("button");
+        authorname = document.querySelector(".author .name");
+
+        function randomQuote(){
+            quotebtn.innerText = "Loading quote...";
+            /*For Fetching API from link*/
+            fetch("https://api.quotable.io/random").then(res => res.json()).then(result => {
+                console.log(result);
+                quoteText.innerText = result.content;
+                authorname.innerText = result.author;
+                quotebtn.innerText = "New Quote";
+                quotebtn.classList.remove("loading");
+            });
+        };   
+
+        quotebtn.addEventListener("click", randomQuote);
+    
+    </script>
+    
+</body>
+</html>
