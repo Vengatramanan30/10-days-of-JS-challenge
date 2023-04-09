@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of even numbers</title>
+</head>
+<body>
+    <script>
+    // Example array of numbers
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// Initialize sum variable to zero
+let sum = 0;
+
+// Loop through array
+for (let i = 0; i < numbers.length; i++) {
+  // Check if current element is even
+  if (numbers[i] % 2 === 0) {
+    // If even, add to sum
+    sum += numbers[i];
+  }
+}
+
+// Display the result
+document.write(`The sum of all even numbers is ${sum}.`);
+
+
+    </script>
+</body>
+</html>
